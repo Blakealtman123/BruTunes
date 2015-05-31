@@ -1,5 +1,5 @@
 class AddLikesToSong < ActiveRecord::Migration
   def change
-    add_column :songs, :likes, :integer
+    add_column :songs, :likes, :integer, :default => 0
   end
 end

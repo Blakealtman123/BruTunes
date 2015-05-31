@@ -1,5 +1,5 @@
 class Album < ActiveRecord::Base
 	has_many :songs
-	has_and_belongs_to_many :artists
+	belongs_to :artists
 	validates :name, presence :true
 end
