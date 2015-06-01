@@ -1,0 +1,17 @@
+<h1>
+	<%= @song.name %>
+</h1>
+<strong>
+	Artist: <%= link_to @song.album.artist.name , artist_path(@song.album.artist) %>
+	<br/>
+	Album: <%= link_to @song.album.name , artist_album_path(@song.album.artist, @song.album) %>
+	<br/>
+	Year: <%= @song.album.year %>
+	<br/>
+	<a href= <%= @song.url %> > Link to Song </a>
+	<br/>
+	Likes: <%= @song.likes %>
+		<%= link_to 'upvote' , like_song_path(@song) %>
+	<br/>
+	<h3><%= link_to 'Home' , root_path %> | <%= link_to 'All Songs' , songs_path %></h3>
+</strong>

@@ -1,3 +1,64 @@
-<h1>BruTunes</h1>
-<strong>The lekker way to groove</strong>
+<style>
+	body{
+		text-align: center;
+		background: url("http://www.brightonunitedmethodistchurch.com/wp-content/uploads/2013/08/chalkboard-background2.jpg");
+		background-size: cover;
+	}
+
+</style>
+
+<body>
+<h1>BruTunes: The lekker way to groove</h1>
+
+<h2>Top 5 Songs </h2>
+
+<% @songs.each do |song| %>
+
+	<strong>
+		<%= link_to song.name , album_song_path(song.album, song) %>
+	</strong>
+	<p>
+		Likes: <%= song.likes %> 
+		<%= link_to 'upvote' , like_song_path(song) %>
+	</p>
+<% end %>
+<h3><%= link_to 'All Songs' , songs_path %></h3>
+
+<br/>
+<br/>
+
+<h2>Top 5 Artists</h2>
+
+<% @artists.each do |artist| %>
+	
+	<strong>
+		<%= link_to artist.name , artist_path(artist) %>
+	</strong>
+
+	<p>
+		Likes: <%= artist.likes %>
+		<%= link_to 'upvote' , like_artist_path(artist) %>
+	</p>
+<% end %>
+<h3><%= link_to 'All Artists' , artists_path %></h3>
+
+
+<br/>
+<br/>
+
+<h2>Top 5 Albums</h2>
+
+<% @albums.each do |album| %>
+	
+	<strong>
+		<%= link_to album.name , artist_album_path(album.artist, album) %>
+	</strong>
+
+	<p>
+		Likes: <%= album.likes %>
+		<%= link_to 'upvote' , like_album_path(album) %>
+	</p>
+<% end %>
+<h3><%= link_to 'All Albums' , albums_path %></h3>
+</body>
 

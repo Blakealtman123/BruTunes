@@ -1,12 +1,26 @@
 Rails.application.routes.draw do
 
-  get 'welcome/index'
+get 'welcome/index'
 
-resources :albums do
+resources :artists do
+  resources :albums
+  member do
+    get 'like'
+  end
+ end
+
+ resources :albums do
   resources :songs
-end
+   member do
+    get 'like'
+  end
+ end
 
-resources :artists
+ resources :songs do
+  member do
+    get 'like'
+  end
+end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -11,33 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531134350) do
+ActiveRecord::Schema.define(version: 20150601213338) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
     t.string   "year"
     t.string   "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "likes"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "likes",      default: 0
+    t.integer  "artist_id"
+  end
+
+  add_index "albums", ["artist_id"], name: "index_albums_on_artist_id"
+
+  create_table "albums_artists", id: false, force: :cascade do |t|
+    t.integer "artist_id", null: false
+    t.integer "album_id",  null: false
   end
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
     t.text     "bio"
     t.string   "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "cover"
-    t.integer  "likes"
+    t.integer  "likes",      default: 0
   end
 
   create_table "songs", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "album_id"
-    t.integer  "likes"
+    t.integer  "likes",      default: 0
+    t.string   "url"
   end
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id"

@@ -1,0 +1,16 @@
+<h1>All Albums</h1>
+
+<% @albums.each do |album| %>
+	<hr/>
+	<strong>
+		<%= link_to album.name , artist_album_path(album.artist, album) %>
+	</strong>
+
+	<p>
+		Likes: <%= album.likes %>
+		<%= link_to 'upvote' , like_album_path(album) %>
+	</p>
+<% end %>
+
+
+<h3><%= link_to 'Home' , root_path %></h3>
