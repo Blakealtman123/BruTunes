@@ -2,8 +2,13 @@
 	<%= @artist.name %>
 </h1>
 
+	<img src= <%= @artist.picture %> , height="300px" >
+	<br/>
+	<br/>
 	<strong>Artist Bio:</strong>
-	<p><%= @artist.bio %></p>
+	<%= @artist.bio %>
+	<br/>
+	<br/>
 <strong>
 	<% @artist.albums.each do |album| %>
 	Album:

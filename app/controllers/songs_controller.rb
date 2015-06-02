@@ -10,10 +10,13 @@ class SongsController < ApplicationController
 
 	def new
 		@song = Song.new
+    @album = Album.find(params[:album_id])
+    
 	end
 
 	def create
-    	@song = Song.new(song_params)
+    	@album = Album.find(params[:album_id])
+      @song = @album.songs.create(song_params)
  
     	if @song.save
       		redirect_to :back #it was @song before

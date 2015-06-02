@@ -4,11 +4,15 @@
 <strong>
 	Artist: <%= link_to @album.artist.name , artist_path(@album.artist) %>
 	<br/>
+	<br/>
 	Songs: 
+	<br/>
 	<% @album.songs.each do |song| %>
 		<%= link_to song.name , song_path(song) %>
 	<br/>
 	<% end %>
+	<br/>
+
 	Year: <%= @album.year %>
 	<br/>
 	Likes: <%= @album.likes %>

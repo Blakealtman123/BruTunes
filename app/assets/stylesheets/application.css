@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+	body{
+		text-align: center;
+		background: url("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQERyFBVoNo-AoJBkLxZZL82m4sCkGNOxlDLyWef3SMAHZgXry6ww");
+		background-size: cover;
+		font-family: 'Raleway', sans-serif;
+		font-size: 20px;
+	}
+	h1{
+		font-size: 32px;
+	}
+	img{
+		border-radius: 1000px
+	}

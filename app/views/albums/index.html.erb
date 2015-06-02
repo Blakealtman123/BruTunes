@@ -1,7 +1,6 @@
 <h1>All Albums</h1>
 
 <% @albums.each do |album| %>
-	<hr/>
 	<strong>
 		<%= link_to album.name , artist_album_path(album.artist, album) %>
 	</strong>
